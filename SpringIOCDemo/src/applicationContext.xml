@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+
+	<!-- 测试 1 ：对象的创建 -->
+	<!-- <bean id="dept" class="com.isharefy.beans.Dept"></bean> -->
+	
+	<!-- 测试 2：Bean对象的初始化 -->
+	<!-- <bean id="dept" class="com.isharefy.beans.Dept">
+		<property name="deptNo" value="10"></property>
+		<property name="dname" value="学习部"></property>
+	</bean> -->
+	
+	<!-- 测试 3 ：创建次数，单例、多例 -->
+	<bean id="dept" class="com.isharefy.beans.Dept" scope="single">
+		<property name="deptNo" value="10"></property>
+		<property name="dname" value="学习部"></property>
+	</bean>
+	
+	<!-- 测试 4 ： 依赖注入 -->
+	<bean id="myDao" class="com.isharefy.dao.DeptDao" scope="single"></bean>
+
+	<bean id="myService" class="com.isharefy.service.DeptService" scope="single">
+		<property name="dao" ref="myDao"></property>
+	</bean>
+
+</beans>
